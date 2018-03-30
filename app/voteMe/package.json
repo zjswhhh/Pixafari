@@ -1,0 +1,29 @@
+{
+  "name": "voteme",
+  "version": "1.0.0",
+  "description": "simple voting site",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mayshinlyan/VoteMe.git"
+  },
+  "keywords": [
+    "simple",
+    "travel",
+    "vote"
+  ],
+  "author": "may",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mayshinlyan/VoteMe/issues"
+  },
+  "homepage": "https://github.com/Mayshinlyan/VoteMe#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2"
+  }
+}
