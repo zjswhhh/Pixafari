@@ -1,0 +1,14 @@
+.jumbotron {
+  background-image: url("https://cdn.website.thryv.com/12044ff790a646f99b35a3af4b682cfe/DESKTOP/jpg/690.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 30em;
+  padding: 10rem;
+  color: white;
+}
+
+.display-4,
+.lead {
+  text-shadow: 0.5px 0.5px 3px grey;
+  /* font-weight: 800; */
+}
