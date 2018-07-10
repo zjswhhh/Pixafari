@@ -6,11 +6,12 @@ React.js: Javascript
 
 ### To start the frontend part:
 
-      1. Clone the Github repository
-      2. Go the client file /client through command line
-      3. Enter "npm install -g"
-      4. Once the installation is over, enter "npm start"
-      5. A browser will automatically opens up
+      1. Install node.js on your laptop by downloading here https://nodejs.org/en/
+      2. Clone the Github repository
+      3. Go the client file /client through command line
+      4. Enter "npm install -g"
+      5. Once the installation is over, enter "npm start"
+      6. A browser will automatically opens up
 
 ### Tasks to accomplish
 
