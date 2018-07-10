@@ -37,4 +37,4 @@ MySQL
 ### Tasks to accomplish
 
       1. Establish connection between the server and the React Frontend
-      2. Once the connection exists, start entering user input data from form as front end develope
+      2. Once the connection exists, start taking in user input data from forms as front-end develope
