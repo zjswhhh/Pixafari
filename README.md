@@ -1,4 +1,4 @@
-# Pixafari Tech Overview 
+# Pixafari Tech Overview
 
 ## Frontend - May
 
@@ -38,3 +38,10 @@ MySQL
 
       1. Establish connection between the server and the React Frontend
       2. Once the connection exists, start taking in user input data from forms as front-end develope
+
+## Further Tasks to Accomplish in Backend
+
+      1. Alogrithm to email collaborators
+      2. Alogrithm to pull top votes and display in the result page
+      2. Alogrithm to update votes based on user input
+      3. Alogrithm to create recommendation ( https://blog.dominodatalab.com/recommender-systems-collaborative-filtering/)
