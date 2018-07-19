@@ -6,9 +6,7 @@
   "scripts": {
     "lint": "eslint ./",
     "test": "jest -i --verbose --coverage --runInBand",
-    "start:server": "cd backend && npm start",
-    "start:client": "cd frontend && npm start",
-    "start": "npm-run-all --parallel start:client start:server"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
