@@ -1,17 +1,18 @@
 # Pixafari Tech Overview
 
-## Frontend - May
-
-React.js: Javascript
-
-### To start the frontend part:
+## To start the app:
 
       1. (one time) Install node.js on your laptop by downloading here https://nodejs.org/en/
       2. (one time) Clone the Github repository
-      3. Go to the client file /client through command line
+      3. Go inside the main Pixafari folder through command line
       4. Enter "npm install -g"
       5. Once the installation is over, enter "npm start"
-      6. A browser will automatically opens up
+      6. A browser will automatically opens up and the server will run in the background
+      7. Note: if there are some error, try npm install inside both front-end and back-end
+
+## Frontend - May
+
+React.js: Javascript
 
 ### Week 2 Tasks to accomplish
 
@@ -25,14 +26,6 @@ React.js: Javascript
 Express: Javascript
 Nodejs
 
-### To start the backend part:
-
-      1. (one time) Install node.js on your laptop by downloading here https://nodejs.org/en/
-      2. (one time) Clone the Github repository
-      3. Go to the Pixafari root folder through command line
-      4. Enter "npm install -g"
-      5. Once the installation is over, enter "npm start"
-
 ### Week 2 Tasks to accomplish
 
       1. Build the backend structure for express and nodejs
@@ -40,12 +33,19 @@ Nodejs
       http://programmerblog.net/nodejs-passport-login-mysql/
       https://www.djamware.com/post/5a90c37980aca7059c14297a/securing-mern-stack-web-application-using-passport
 
-### Further Tasks to Accomplish in Backend
+### Further Tasks to Accomplish in Backend (Tentative timeline with 3 backend developers working in Fall 2018)
 
-      1. Alogrithm to email collaborators
-      2. Alogrithm to pull top votes and display in the result page
-      2. Alogrithm to update votes based on user input
-      3. Alogrithm to create recommendation ( https://blog.dominodatalab.com/recommender-systems-collaborative-filtering/)
+#### Developer A Tasks
+
+      1. Alogrithm to email collaborators - 1st Sept 2018 to 22nd Sept 2018
+
+#### Developer B Tasks
+
+      2. Alogrithm to update votes based on user input and display the top votes in the result page - 1st Sept 2018 to 28nd Sept 2018
+
+#### Developer C Tasks
+
+      3. Alogrithm to create recommendation ( https://blog.dominodatalab.com/recommender-systems-collaborative-filtering/) - 1st Sept 2018 to 28nd Sept 2018
 
 ## Database - Jing Zhang
 
@@ -58,16 +58,15 @@ MySQL
 
 ## File Structures
 
-- client/ _- Front End Folder_
-
+- frontend/ _- Front End Folder_
   - public/ - _Static Files Directory_
   - src/ - _React Components Directory_
   - app.js - _Client side main_
-
-- config _- App configuration_
-- resources _- miscellaneous items_
-- route _- Route definitions_
-- utils/ _- Files containing utility methods_
-- views/ _- Server Side Views (jade, or handlebars, ..)_
-- index.js - _Server side main_
+- backend/
+  - config _- App configuration_
+  - resources _- miscellaneous items_
+  - route _- Route definitions_
+  - utils/ _- Files containing utility methods_
+  - views/ _- Server Side Views (jade, or handlebars, ..)_
+  - index.js - _Server side main_
 - package.json
