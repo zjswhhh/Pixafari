@@ -1,10 +1,37 @@
-.plan_container {
-  background-color: #fea403;
-  height: 100em;
-  align-content: center;
-  text-align: center;
-  padding-top: 5em;
+/****************  LAYOUT ***********************/
+.background {
+  background-color: #50DEF0;
+  height: 100%;
 }
+
+.plan-container {
+  width: 80%;
+  height: auto;
+  margin: 5em auto;
+  padding: 1  em;
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  text-align: center;
+}
+
+.p1 {
+    display: flex;
+    justify-content: flex-end;
+}
+.p1, .p2, .p3, .p4 {
+padding: 0 10em 3em;
+}
+
+.plan-profile-link a {
+  color: white !important;
+
+}
+
+.plan-profile-link button {
+  padding-left: 1em;
+}
+
 
 /****************  FORM ***********************/
 :focus {
@@ -29,7 +56,7 @@
   left: 50%;
   width: 0;
   height: 2px;
-  background-color: #4caf50;
+  background-color: #50DEF0;
   transition: 0.4s;
 }
 
