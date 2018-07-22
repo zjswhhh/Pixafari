@@ -15,12 +15,14 @@
 React.js: Javascript
 
 ### Week 2 Tasks to accomplish
+      1. Build invitation pop up (done!)
+      2. Build profile page (done!)
+      3. Build final result page (done!)
 
-      1. Build Confirmation page
-      2. Build invitation pop up
-      3. Build profile page
-      4. Build final result page
-
+### Week 3 Tasks to accomplish
+      1. Build SignIn page
+      2. Build AboutUS page
+     
 ## Backend - Muhammad
 
 Express: Javascript
@@ -32,18 +34,18 @@ Nodejs
       2. Build the authentification system using Passport.js
       http://programmerblog.net/nodejs-passport-login-mysql/
       https://www.djamware.com/post/5a90c37980aca7059c14297a/securing-mern-stack-web-application-using-passport
+      
+### Week 3 Tasks to accomplish
+      1. Build the authentification system using Passport.js
+      http://programmerblog.net/nodejs-passport-login-mysql/
+      https://www.djamware.com/post/5a90c37980aca7059c14297a/securing-mern-stack-web-application-using-passport
+      2. Gmail login and work with Jing to sync to database
 
 ### Further Tasks to Accomplish in Backend (Tentative timeline with 3 backend developers working in Fall 2018)
 
-#### Developer A Tasks
-
       1. Alogrithm to email collaborators - 1st Sept 2018 to 22nd Sept 2018
 
-#### Developer B Tasks
-
       2. Alogrithm to update votes based on user input and display the top votes in the result page - 1st Sept 2018 to 28nd Sept 2018
-
-#### Developer C Tasks
 
       3. Alogrithm to create recommendation ( https://blog.dominodatalab.com/recommender-systems-collaborative-filtering/) - 1st Sept 2018 to 28nd Sept 2018
 
@@ -53,8 +55,14 @@ MySQL
 
 ### Week 2 Tasks to accomplish
 
-      1. Establish connection between the server and the React Frontend
-      2. Once the connection exists, start taking in user input data from forms as front-end develope
+      1. Establish connection between the server and the React Frontend (done!)
+      2. Once the connection exists, start taking in user input data from forms as front-end develope (done!)
+      
+### Week 3 Tasks to accomplish
+
+      1. Connect Database to Profile Page 
+      2. Connect Database to Result Page
+      3. Connect Database to Invitation Pop-Up
 
 ## File Structures
 
