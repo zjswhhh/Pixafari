@@ -12,7 +12,7 @@ To ensure the backend running successfully, you need to check if the MySQL serve
 
 3. Run DATABASE_INITIALIZE.sql script (which is located in the backend folder) 
 
-## start the server
+## Start the server
 Step 1: open one terminal, cd to the backend directory <br>
 Step 2: run  `npm install` <br>
 Step 2: run `nodemon index.js` <br>
@@ -20,3 +20,11 @@ Step 2: run `nodemon index.js` <br>
 Nodemon  will monitor for any changes in the source and automatically restart the server, which is super useful for development. 
 
 ![nodemon](https://github.com/zjswhhh/Pixafari/blob/master/backend/img/instruction3.png)
+
+And try add new trips from the front end form (http://localhost:3000/plan). 
+
+You'll find that new trips will be added to the database. 
+
+![nodemon](https://github.com/zjswhhh/Pixafari/blob/master/backend/img/instruction4.png)
+![nodemon](https://github.com/zjswhhh/Pixafari/blob/master/backend/img/instruction5.png)
+![nodemon](https://github.com/zjswhhh/Pixafari/blob/master/backend/img/instruction6.png)
