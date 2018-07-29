@@ -1,164 +1,176 @@
-import React, {
-  Component
-} from "react";
+
+import React, { Component } from "react";
 import Form from "react-validation/build/form";
 
 import "./Plan.css";
-import Button from  "../Button/Button";
+import "../Button/Button.css";
 import Navbar from "../Navbar/Navbar";
+
+
+import Button from  "../Button/Button";
 import Input from "react-validation/build/input";
 import Modal from "../Modal/Modal";
+
 
 class Plan extends Component {
   constructor() {
     super();
   }
 
+  state = {
+    trips: [],
+    trip: {
+      trip_name: 'test',
+      start_date: '2019-01-01',
+      end_date: '2019-12-01',
+      budget: 0,
+      destination: 'San Francisco',
+      trip_type: 'family'
+    }
+  }
+
+  componentDidMount() {
+    // this.getTrips();
+  }
+
+  // getTrips = _ => {
+  //   fetch('http://localhost:4000/trips')
+  //   .then(response => response.json())
+  //   .then(response => this.setState({ trips: response.data }))
+  //   .catch(err => console.error(err))
+  // }
+
+  addTrip = _ => {
+        const { trip } = this.state;
+        fetch(`http://localhost:4000/trips/add?trip_name=${trip.trip_name}&start_date=${trip.start_date}&end_date=${trip.end_date}&budget=${trip.budget}&destination=${trip.destination}&trip_type=${trip.trip_type}`)
+        .then(response => response.json())
+        // .then(this.getTrips)
+        .catch(err => console.error(err))
+  }
+
+
+  renderTrip = ({ groupID, trip_name, start_date, end_date, budget, destination, trip_type}) => <div key={groupID}>{trip_name, start_date, end_date, budget, destination, trip_type}</div>
+
+
   render() {
+    const { trips, trip } = this.state;
     return (
-    <div className="background">
-        <Navbar / >
-        <div className = "plan-container" >
+      <div>
+        <Navbar />
 
-          {/* button triggering invite modal */}
-          <div className= "row p1">
+            <div className = "plan-container" >
 
-                <button
-                    type="button"
-                    class="btn btn-primary"
-                    data-toggle="modal"
-                    data-target="#exampleModal"
-                >
-                      Invite
-                </button>
+            {/* button triggering invite modal */}
+            <div className= "row p1">
 
-              <div className="plan-profile-link">
-                <button className="btn btn-primary">
-                <a href="/profile">My Profile <i className="fa fa-user"></i></a>
-                </button>
-              </div>
-          </div> {/* row p1 ends */}
+                  <button
+                      type="button"
+                      class="btn btn-primary"
+                      data-toggle="modal"
+                      data-target="#exampleModal"
+                  >
+                        Invite
+                  </button>
 
-          {/* invite modal */}
-          <Modal title="Invite others" body={[
-            <label for="modal-invite">
-              <div>People</div>
-               <input
-                type="text"
-                className="form-control modal-invite"
-                placeholder="Enter email addresses..."
-                />
-            </label>
+                <div className="plan-profile-link">
+                  <button className="btn btn-primary">
+                  <a href="/profile">My Profile <i className="fa fa-user"></i></a>
+                  </button>
+                </div>
+            </div> {/* row p1 ends */}
 
-            ]}/>
+              {/* invite modal */}
+              <Modal title="Invite others" body={[
+                <label for="modal-invite">
+                  <div>People</div>
+                  <input
+                    type="text"
+                    className="form-control modal-invite"
+                    placeholder="Enter email addresses..."
+                    />
+                </label>
 
+              ]}/>
 
-          <div  className= "row p2">
-            <div className = "form-group col-sm" >
-              <label > Trip Name </label>
+          <Form>
+
+            <div className="form-group">
+              <label>Trip Name</label>
               <input
-              className = "effect-2" /* className for form style */
-              type = "text"
-              name = "TripName"
-              placeholder = "Try 'San Francisco'"
+                value={trip.trip_name}
+                onChange={e => this.setState({ trip: { ...trip, trip_name: e.target.value}})}
+                className="effect-2"
+                type="text"
+                name="TripName"
+                placeholder="Try 'San Francisco'"
               />
             </div>
-          </div> {/* row p1 ends */}
 
-          <div  className= "row p3">
-            <div className = "form-group col-sm" >
-              <label > Date Range </label>
+            <div className="form-group">
+              <label>Depart Date</label>
+              <div>
+                <input
+                  type="date"
+                  name="date"
+                  value={trip.start_date}
+                  onChange={e => this.setState({ trip: { ...trip, start_date: e.target.value}})}
+                />
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label>Return Date</label>
+              <div>
+                <input
+                  type="date"
+                  name="date"
+                  value={trip.end_date}
+                  onChange={e => this.setState({ trip: { ...trip, end_date: e.target.value}})}
+                />
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label>Budget</label>
               <div>
               <input
-               type = "date"
-               name = "date" />
+                value={trip.budget}
+                onChange={e => this.setState({ trip: { ...trip, budget: e.target.value}})}
+              />
               </div>
-            </div >
-
-            <div className = "form-group col-sm">
-              <label> Budget </label>
-              <div className = "radio">
-                <label >
-                  <input
-                  type = "radio"
-                  name = "budget"
-                  checked = {true}
-                  />
-                $300 </label>
-               </div>
-
-              <div className = "radio" >
-                <label >
-                  <input
-                  type = "radio"
-                  name = "budget"
-                  />
-                  $200
-                </label>
-              </div >
-          </div>
-
-          <div className = "form-group col-sm">
-              <label> Destination </label>
-              <div className = "radio">
-                <label >
-                  <input
-                  type = "radio"
-                  name = "destination"
-                  checked = {true}
-                  />
-                San Francisco </label>
-               </div>
-
-              <div className = "radio" >
-                <label >
-                  <input
-                  type = "radio"
-                  name = "budget"
-                  />
-                  other
-                </label>
-              </div >
-          </div>
-
-          <div className = "form-group col-sm" >
-            <label > Trip Type </label>
-            <div className = "radio" >
-                <label >
-                  <input type = "radio"
-                  name = "TripType"
-                  value = "family"
-                  checked = {true}
-                  />
-                  Family
-                </label>
-            </div >
-            <div className = "radio" >
-                <label >
-                <input type = "radio"
-                name = "TripType"
-                value = "fun" />
-                Fun
-                </label>
             </div>
-          </div>
-        </div> {/*row p3 ends*/}
 
-        <div classname="row p4">
-          <button
-            type="button"
-            class="btn btn-primary btn-lg"
-          >
-            Done
-          </button>
-        </div> {/*row p4 ends*/}
+            <div className="form-group">
+              <label>Destination</label>
+                <div>
+                  <input
+                    value={trip.destination}
+                    onChange={e => this.setState({ trip: { ...trip, destination: e.target.value}})}
+                  />
+                </div>
+            </div>
 
-        </ div > {/* Plan Container ends */}
-
-
+            <div className="form-group">
+              <label>Trip Type</label>
+                <div>
+                  <input
+                    value={trip.trip_type}
+                    onChange={e => this.setState({ trip: { ...trip, trip_type: e.target.value}})}
+                  />
+                </div>
+            </div>
+            <button onClick={this.addTrip}>Add Trip</button>
+            {/* <span class="focus-border">dddd</span> */}
+          </Form>
+        </div>
+        <div className="content row" />
       </div>
-  );
+    );
+  }
 }
-}
+
+
+
+
 
 export default Plan;
