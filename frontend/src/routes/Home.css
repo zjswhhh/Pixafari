@@ -3,8 +3,25 @@
 html, body {
   margin: 0;
   height: 100%;
+  background-color: #50DEF0;
 }
 
+.container{
+  background-color: white;
+  border-radius: 0.5em;
+  width: 80%;
+  margin: 1em auto 1em auto;
+  padding: 5em;
+}
+
+.card{
+  margin: 1em;
+  width: 30%;
+}
+
+.card-img-top {
+  height: 60%;
+}
 
 .btn-primary {
   background-color: #FFA400;
