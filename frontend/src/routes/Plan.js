@@ -1,25 +1,104 @@
+
 import React, { Component } from "react";
 import Form from "react-validation/build/form";
 
 import "./Plan.css";
 import "../Button/Button.css";
 import Navbar from "../Navbar/Navbar";
+
+
+import Button from  "../Button/Button";
 import Input from "react-validation/build/input";
+import Modal from "../Modal/Modal";
+
 
 class Plan extends Component {
   constructor() {
     super();
   }
 
+  state = {
+    trips: [],
+    trip: {
+      trip_name: 'test',
+      start_date: '2019-01-01',
+      end_date: '2019-12-01',
+      budget: 0,
+      destination: 'San Francisco',
+      trip_type: 'family'
+    }
+  }
+
+  componentDidMount() {
+    // this.getTrips();
+  }
+
+  // getTrips = _ => {
+  //   fetch('http://localhost:4000/trips')
+  //   .then(response => response.json())
+  //   .then(response => this.setState({ trips: response.data }))
+  //   .catch(err => console.error(err))
+  // }
+
+  addTrip = _ => {
+        const { trip } = this.state;
+        fetch(`http://localhost:4000/trips/add?trip_name=${trip.trip_name}&start_date=${trip.start_date}&end_date=${trip.end_date}&budget=${trip.budget}&destination=${trip.destination}&trip_type=${trip.trip_type}`)
+        .then(response => response.json())
+        // .then(this.getTrips)
+        .catch(err => console.error(err))
+  }
+
+
+  renderTrip = ({ groupID, trip_name, start_date, end_date, budget, destination, trip_type}) => <div key={groupID}>{trip_name, start_date, end_date, budget, destination, trip_type}</div>
+
+
   render() {
+    const { trips, trip } = this.state;
     return (
       <div>
         <Navbar />
-        <div className="plan_container">
+
+            <div className = "plan-container" >
+
+            {/* button triggering invite modal */}
+            <div className= "row p1">
+
+                  <button
+                      type="button"
+                      class="btn btn-primary"
+                      data-toggle="modal"
+                      data-target="#exampleModal"
+                  >
+                        Invite
+                  </button>
+
+                <div className="plan-profile-link">
+                  <button className="btn btn-primary">
+                  <a href="/profile">My Profile <i className="fa fa-user"></i></a>
+                  </button>
+                </div>
+            </div> {/* row p1 ends */}
+
+              {/* invite modal */}
+              <Modal title="Invite others" body={[
+                <label for="modal-invite">
+                  <div>People</div>
+                  <input
+                    type="text"
+                    className="form-control modal-invite"
+                    placeholder="Enter email addresses..."
+                    />
+                </label>
+
+              ]}/>
+
           <Form>
+
             <div className="form-group">
               <label>Trip Name</label>
               <input
+                value={trip.trip_name}
+                onChange={e => this.setState({ trip: { ...trip, trip_name: e.target.value}})}
                 className="effect-2"
                 type="text"
                 name="TripName"
@@ -28,55 +107,59 @@ class Plan extends Component {
             </div>
 
             <div className="form-group">
-              <label>Date Range</label>
+              <label>Depart Date</label>
               <div>
-                <input type="date" name="date" />
+                <input
+                  type="date"
+                  name="date"
+                  value={trip.start_date}
+                  onChange={e => this.setState({ trip: { ...trip, start_date: e.target.value}})}
+                />
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label>Return Date</label>
+              <div>
+                <input
+                  type="date"
+                  name="date"
+                  value={trip.end_date}
+                  onChange={e => this.setState({ trip: { ...trip, end_date: e.target.value}})}
+                />
               </div>
             </div>
 
             <div className="form-group">
               <label>Budget</label>
-              <div className="radio">
-                <label>
-                  <input
-                    type="radio"
-                    name="budget"
-                    value="$300"
-                    checked={true}
-                  />
-                  $300
-                </label>
-              </div>
-
-              <div className="radio">
-                <label>
-                  <input type="radio" name="budget" value="$200" />
-                  $200
-                </label>
+              <div>
+              <input
+                value={trip.budget}
+                onChange={e => this.setState({ trip: { ...trip, budget: e.target.value}})}
+              />
               </div>
             </div>
 
             <div className="form-group">
-              <label>Trip Type</label>
-              <div className="radio">
-                <label>
+              <label>Destination</label>
+                <div>
                   <input
-                    type="radio"
-                    name="TripType"
-                    value="family"
-                    checked={true}
+                    value={trip.destination}
+                    onChange={e => this.setState({ trip: { ...trip, destination: e.target.value}})}
                   />
-                  Family
-                </label>
-              </div>
-
-              <div className="radio">
-                <label>
-                  <input type="radio" name="TripType" value="fun" />
-                  Fun
-                </label>
-              </div>
+                </div>
             </div>
+
+            <div className="form-group">
+              <label>Trip Type</label>
+                <div>
+                  <input
+                    value={trip.trip_type}
+                    onChange={e => this.setState({ trip: { ...trip, trip_type: e.target.value}})}
+                  />
+                </div>
+            </div>
+            <button onClick={this.addTrip}>Add Trip</button>
             {/* <span class="focus-border">dddd</span> */}
           </Form>
         </div>
@@ -85,5 +168,9 @@ class Plan extends Component {
     );
   }
 }
+
+
+
+
 
 export default Plan;
