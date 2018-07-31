@@ -1,16 +1,22 @@
+
 import React, { Component } from "react";
 import Form from "react-validation/build/form";
 
 import "./Plan.css";
 import "../Button/Button.css";
 import Navbar from "../Navbar/Navbar";
+
+
+import Button from  "../Button/Button";
 import Input from "react-validation/build/input";
+import Modal from "../Modal/Modal";
+
 
 class Plan extends Component {
   constructor() {
     super();
   }
-  
+
   state = {
     trips: [],
     trip: {
@@ -22,11 +28,11 @@ class Plan extends Component {
       trip_type: 'family'
     }
   }
-    
+
   componentDidMount() {
     // this.getTrips();
   }
-    
+
   // getTrips = _ => {
   //   fetch('http://localhost:4000/trips')
   //   .then(response => response.json())
@@ -40,18 +46,52 @@ class Plan extends Component {
         .then(response => response.json())
         // .then(this.getTrips)
         .catch(err => console.error(err))
-  }     
+  }
 
-    
+
   renderTrip = ({ groupID, trip_name, start_date, end_date, budget, destination, trip_type}) => <div key={groupID}>{trip_name, start_date, end_date, budget, destination, trip_type}</div>
-  
-    
+
+
   render() {
     const { trips, trip } = this.state;
     return (
       <div>
         <Navbar />
-        <div className="plan_container">
+
+            <div className = "plan-container" >
+
+            {/* button triggering invite modal */}
+            <div className= "row p1">
+
+                  <button
+                      type="button"
+                      class="btn btn-primary"
+                      data-toggle="modal"
+                      data-target="#exampleModal"
+                  >
+                        Invite
+                  </button>
+
+                <div className="plan-profile-link">
+                  <button className="btn btn-primary">
+                  <a href="/profile">My Profile <i className="fa fa-user"></i></a>
+                  </button>
+                </div>
+            </div> {/* row p1 ends */}
+
+              {/* invite modal */}
+              <Modal title="Invite others" body={[
+                <label for="modal-invite">
+                  <div>People</div>
+                  <input
+                    type="text"
+                    className="form-control modal-invite"
+                    placeholder="Enter email addresses..."
+                    />
+                </label>
+
+              ]}/>
+
           <Form>
 
             <div className="form-group">
@@ -69,9 +109,9 @@ class Plan extends Component {
             <div className="form-group">
               <label>Depart Date</label>
               <div>
-                <input 
-                  type="date" 
-                  name="date" 
+                <input
+                  type="date"
+                  name="date"
                   value={trip.start_date}
                   onChange={e => this.setState({ trip: { ...trip, start_date: e.target.value}})}
                 />
@@ -81,9 +121,9 @@ class Plan extends Component {
             <div className="form-group">
               <label>Return Date</label>
               <div>
-                <input 
-                  type="date" 
-                  name="date" 
+                <input
+                  type="date"
+                  name="date"
                   value={trip.end_date}
                   onChange={e => this.setState({ trip: { ...trip, end_date: e.target.value}})}
                 />
@@ -93,7 +133,7 @@ class Plan extends Component {
             <div className="form-group">
               <label>Budget</label>
               <div>
-              <input 
+              <input
                 value={trip.budget}
                 onChange={e => this.setState({ trip: { ...trip, budget: e.target.value}})}
               />
@@ -128,5 +168,9 @@ class Plan extends Component {
     );
   }
 }
+
+
+
+
 
 export default Plan;

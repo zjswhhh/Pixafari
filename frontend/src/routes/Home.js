@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { NavLink, Redirect } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "font-awesome/css/font-awesome.min.css"
 
 import "./Home.css";
 import "../Button/Button.css";
