@@ -61,7 +61,7 @@ MySQL
 ### Week 3 Tasks to accomplish
 
       1. Connect Database to Profile Page 
-      2. Connect Database to Result Page
+      2. Connect Database to Result Page (Done!)
       3. Connect Database to Invitation Pop-Up
 
 ## File Structures
