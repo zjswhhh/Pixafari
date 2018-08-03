@@ -66,6 +66,21 @@ app.get('/trips', (req, res) => {
 	});
 });
 
+app.get('/results', (req, res) => {
+	const { trip_name } = req.query;
+	const SELECT_RESULT = `select * from trip where trip_name = '${trip_name}'`;
+	connection.query(SELECT_RESULT, (err, results) => {
+		if(err) {
+			return res.send(err)
+		}
+		else {
+			return res.json({
+				data: results
+			})
+		}
+	});
+});
+
 app.listen(4000, () => {
 	console.log(`Pixafari server listening on port 4000`)
 });
