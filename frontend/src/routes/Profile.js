@@ -27,6 +27,15 @@ class Profile extends Component {
       .catch(err => console.error(err))
   }
 
+  addMember = _ => {
+      var groupID = prompt("Please insert groupID:");
+      var email = prompt("Please insert email:");
+      fetch(`http://localhost:4000/addMember?groupID=${groupID}&email=${email}`)
+        .then(response => response.json())
+        // .then(this.getTrips)
+        .catch(err => console.error(err))
+  }
+
   renderProfile = ({ groupID, trip_name, votes, total }) => 
   <div className="trip-container row">
             <div className="trip-left col-sm-4">
@@ -42,6 +51,7 @@ class Profile extends Component {
 
             <div className="trip-center col-sm-5">
                   <div className="trip-title">
+                      <h2>Group ID: {groupID}</h2>
                       <h2>{trip_name}</h2>
                   </div>
 
@@ -60,7 +70,10 @@ class Profile extends Component {
                   </div>
 
                   <div className="trip-reminder">
-                    <span>send reminder  <i class="fa fa-envelope"></i> <span className="glyphicon glyphicon-envelope"></span></span>
+                    <span>Send Reminder<i class="fa fa-envelope"></i> <span className="glyphicon glyphicon-envelope"></span></span>
+                  </div>
+                  <div>
+                  <button onClick={this.addMember}>New Member</button>
                   </div>
              </div>
         </div>;

@@ -110,7 +110,21 @@ left join trip on trip.groupID = t3.groupID;
 		}
 	});
 });
-
+//--------------------------------//
+//---------Email Popup----------//
+//-------------------------------//
+app.get('/addmember', (req, res) => {
+	const { email, groupID } = req.query;
+	const INSERT_MEMBER = `Insert into member select groupID, userID from trip,user  where groupID = '${groupID}' AND  email = '${email}';`;
+	connection.query(INSERT_MEMBER, (err, results) => {
+		if(err) {
+			return res.send(err)
+		}
+		else {
+			return res.send('Successfully added new member.')
+		}
+	});
+})
 
 //--------------------------------//
 //---------Result Page----------//
